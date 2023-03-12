@@ -1,6 +1,3 @@
-.contactsBox {
-  margin-bottom: 20px;
-}
 .contactBox {
   display: flex;
   justify-content: space-between;
@@ -11,7 +8,7 @@
   font-size: 20px;
   font-weight: 700;
   text-align: center;
-  margin: 20px 0 10px;
+  margin-bottom: 10px;
 }
 .btn {
   margin: 0;

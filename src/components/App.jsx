@@ -27,7 +27,7 @@ export class App extends Component {
   //   }));
   // };
 
-  addContactInAppAfterSubmitForm = contact => {
+  handleSubmitForm = contact => {
     if (
       this.state.contacts.some(item => {
         return item.name === contact.name;
@@ -66,13 +66,13 @@ export class App extends Component {
 
     return (
       <Section title={'Phonebook'}>
-        <Form onSubmitProps={this.addContactInAppAfterSubmitForm} />
+        <Form onSubmitProps={this.handleSubmitForm} />
+        <Filter filter={filter} onChangeFilter={this.changeFilter} />
         <Contacts
           title={'Contacts'}
           contacts={filterContacts}
           onDeleteContact={this.deleteContact}
         />
-        <Filter filter={filter} onChangeFilter={this.changeFilter} />
       </Section>
     );
   }

@@ -1,4 +1,3 @@
-import { nanoid } from 'nanoid';
 import css from './Contacts.module.css';
 
 export const Contacts = ({ title, contacts, onDeleteContact }) => {
@@ -8,17 +7,17 @@ export const Contacts = ({ title, contacts, onDeleteContact }) => {
   return (
     <div>
       <h3 className={css.title}>{title}</h3>
-      <ul className={css.contactsBox}>
+      <ul>
         {contacts.map(({ id, name, phone }) => {
           return (
-            <ul key={nanoid()} className={css.contactBox}>
-              <li>
+            <li key={id} className={css.contactBox}>
+              <p>
                 {name}: {phone}
-              </li>
+              </p>
               <button onClick={() => onDeleteContact(id)} className={css.btn}>
                 Delete
               </button>
-            </ul>
+            </li>
           );
         })}
       </ul>
