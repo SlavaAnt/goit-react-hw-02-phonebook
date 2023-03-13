@@ -5,7 +5,7 @@ export const Contacts = ({ title, contacts, onDeleteContact }) => {
   console.log(contacts);
 
   return (
-    <div>
+    <>
       <h3 className={css.title}>{title}</h3>
       <ul>
         {contacts.map(({ id, name, phone }) => {
@@ -21,6 +21,6 @@ export const Contacts = ({ title, contacts, onDeleteContact }) => {
           );
         })}
       </ul>
-    </div>
+    </>
   );
 };

@@ -5,11 +5,9 @@ import css from './Form.module.css';
 
 export class Form extends Component {
   state = {
-    id: nanoid(),
     name: '',
     phone: '',
   };
-
   nameId = nanoid();
   phoneId = nanoid();
   // ----------------------------------------------------

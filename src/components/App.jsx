@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import { nanoid } from 'nanoid';
+import { nanoid } from 'nanoid';
 import { Section } from 'components/Section/Section';
 import { Form } from 'components/Form/Form';
 import { Contacts } from 'components/Contacts/Contacts';
@@ -16,29 +16,18 @@ export class App extends Component {
     filter: '',
   };
 
-  // addContactInAppAfterSubmitForm = ({ name, phone }) => {
-  //   const contact = {
-  //     // id: nanoid(),
-  //     name: name,
-  //     phone: phone,
-  //   };
-  //   this.setState(prevState => ({
-  //     contacts: [contact, ...prevState.contacts],
-  //   }));
-  // };
-
-  handleSubmitForm = contact => {
+  handleSubmitForm = ({ name, phone }) => {
     if (
       this.state.contacts.some(item => {
-        return item.name === contact.name;
+        return item.name === name;
       })
     ) {
-      alert(`${contact.name} is already in contacts`);
+      alert(`${name} is already in contacts`);
       return;
     }
-
-    this.setState(({ contacts }) => ({
-      contacts: [contact, ...contacts],
+    const newContact = { id: nanoid(), name, phone };
+    this.setState(prevState => ({
+      contacts: [newContact, ...prevState.contacts],
     }));
   };
 
